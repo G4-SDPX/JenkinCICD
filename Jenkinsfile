@@ -40,15 +40,15 @@ pipeline {
                 sh 'robot ./test-calculate.robot'
             }
         }
-        stage('Clean Workspace') {
-            agent {
-                label 'test'
-            }
-            steps {
-                echo 'DownTime'
-                sh 'docker compose -f ./compose.yaml down'
-                sh 'docker system prune -a -f'
-            }
-        }
+        // stage('Clean Workspace') {
+        //     agent {
+        //         label 'test'
+        //     }
+        //     steps {
+        //         echo 'DownTime'
+        //         sh 'docker compose -f ./compose.yaml down'
+        //         sh 'docker system prune -a -f'
+        //     }
+        // }
     }
 }
