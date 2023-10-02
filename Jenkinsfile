@@ -27,6 +27,8 @@ pipeline {
                 sh '''#!/bin/bash
                  source env/bin/activate && python3 ./unit_test.py
                 '''
+                echo 'Install Library'
+                sh 'pip install robotframework-requests'
             }
         }
         stage('Run Robot') {
@@ -36,8 +38,6 @@ pipeline {
             steps {
                 echo 'Create Container'
                 sh 'docker compose -f ./compose.yaml up -d --build'
-                echo 'Install Library'
-                sh 'pip install robotframework-requests'
                 echo 'Runing Robot'
                 sh 'robot ./test-calculate.robot'
             }
