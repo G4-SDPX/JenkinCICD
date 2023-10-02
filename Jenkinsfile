@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
                 echo 'Create Container'
-                sh 'docker compose ./compose.yaml up '
+                sh 'docker-compose ./compose.yaml up '
                 echo 'Runing Robot'
                 sh 'robot ./test-calculate.robot'
             }
