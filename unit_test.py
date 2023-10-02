@@ -2,7 +2,6 @@ import unittest
 
 from app import app
 
-# KKK
 class AppTestCase(unittest.TestCase):
     def test_hello_with_string(self):
         # test hello
