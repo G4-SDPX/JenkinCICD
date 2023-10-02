@@ -1,6 +1,5 @@
 ## Simple API using Flask
 
-
 ### Run using flask
 `python app/app.py`
 
