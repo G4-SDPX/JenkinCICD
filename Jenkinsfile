@@ -36,8 +36,8 @@ pipeline {
             steps {
                 echo 'Create Container'
                 sh 'docker compose -f ./compose.yaml up -d --build'
-                // echo 'Runing Robot'
-                // sh 'robot ./test-calculate.robot'
+                echo 'Runing Robot'
+                sh 'robot ./test-calculate.robot'
             }
         }
         stage('Clean Workspace') {
