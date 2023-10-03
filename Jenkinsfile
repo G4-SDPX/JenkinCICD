@@ -40,18 +40,18 @@ pipeline {
                 sh 'robot ./test-calculate.robot'
             }
         }
-        // stage('Push Images to registry') {
-        //     agent {
-        //         label 'test'
-        //     }
-        //     steps {
-        //         echo 'Logging'
-        //         sh 'docker login registry.gitlab.com'
-        //         echo 'Build Images'
-        //         sh 'cd app && docker build -t registry.gitlab.com/SasiHan/jenkinscicdtesting .'
-        //         echo 'Push Images'
-        //         sh 'docker push registry.gitlab.com/SasiHan/jenkinscicdtesting'
-        //     }
+        stage('Push Images to registry') {
+            agent {
+                label 'test'
+            }
+            steps {
+                echo 'Logging'
+                sh 'docker login registry.gitlab.com'
+                echo 'Build Images'
+                sh 'cd app && docker build -t registry.gitlab.com/SasiHan/jenkinscicdtesting .'
+                echo 'Push Images'
+                sh 'docker push registry.gitlab.com/SasiHan/jenkinscicdtesting'
+            }
         // }
         stage('Clean Workspace') {
             agent {
@@ -65,3 +65,6 @@ pipeline {
         }
     }
 }
+
+// hangster10761@gmail.com
+// glpat-nL2ieK98aHb4pz6M6P8c
