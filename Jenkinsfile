@@ -52,7 +52,7 @@ pipeline {
                 echo 'Push Images'
                 sh 'docker push registry.gitlab.com/SasiHan/jenkinscicdtesting'
             }
-        // }
+        }
         stage('Clean Workspace') {
             agent {
                 label 'test'
