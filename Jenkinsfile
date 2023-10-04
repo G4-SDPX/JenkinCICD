@@ -48,9 +48,9 @@ pipeline {
                 echo 'Logging'
                 sh 'docker login registry.gitlab.com'
                 echo 'Build Images'
-                sh 'docker build -t registry.gitlab.com/sasihan/jenkinscicd .'
+                sh 'docker build -t registry.gitlab.com/sasihan/jenkinscicdtesting .'
                 echo 'Push Images'
-                sh 'docker push registry.gitlab.com/sasihan/jenkinscicd'
+                sh 'docker push registry.gitlab.com/sasihan/jenkinscicdtesting'
             }
         }
         stage('Clean Workspace') {
@@ -71,9 +71,9 @@ pipeline {
                 // echo 'Remove Old images'
                 // sh 'docker rmi registry.gitlab.com/unnop1.tham/jenkinscicdtesting'
                 echo 'Pull Image from Gitlab'
-                sh 'docker pull registry.gitlab.com/sasihan/jenkinscicd .'
+                sh 'docker pull registry.gitlab.com/sasihan/jenkinscicdtesting'
                 echo 'Run Contrainer'
-                sh 'docker run -d -p 5000:5000 registry.gitlab.com/sasihan/jenkinscicd'
+                sh 'docker run -d -p 5000:5000registry.gitlab.com/sasihan/jenkinscicdtesting'
             }
         }
     }
