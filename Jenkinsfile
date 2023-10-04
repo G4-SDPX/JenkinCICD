@@ -65,7 +65,7 @@ pipeline {
         }
         stage('Stop and Remove Docker Container') {
             agent {
-                label 'pre-prod'
+                label 'preprod'
             }
             steps {
                 echo 'Show Docker running'
@@ -78,7 +78,7 @@ pipeline {
         }
         stage('Run Docker Container') {
             agent {
-                label 'pre-prod'
+                label 'preprod'
             }
             steps {
                 echo 'Pull Image from Gitlab'
