@@ -63,8 +63,6 @@ pipeline {
                 sh 'docker system prune -a -f'
             }
         }
-        
-        
         // stage('Test pull image from GitLab') {
         //     agent {
         //         label 'pre-prod'
