@@ -9,14 +9,6 @@ pipeline {
                 sh 'python3 -m venv env'
             }
         }
-        stage('Install Environment') {
-            agent {
-                label 'pre-prod'
-            }
-            steps {
-                sh 'python3 -m venv env'
-            }
-        }
         stage('Activate Environment && Install Library') {
             agent {
                 label 'test'
