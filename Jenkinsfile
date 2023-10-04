@@ -63,6 +63,20 @@ pipeline {
                 sh 'docker system prune -a -f'
             }
         }
+        
+        // stage('Test pull image from GitLab') {
+        //     agent {
+        //         label 'pre-prod'
+        //     }
+        //     steps {
+        //         echo 'Remove Old images'
+        //         sh 'docker rmi registry.gitlab.com/unnop1.tham/jenkinscicdtesting'
+        //         echo 'Pull Image from Gitlab'
+        //         sh 'docker pull registry.gitlab.com/unnop1.tham/jenkinscicdtesting'
+        //         echo 'Run Contrainer'
+        //         sh 'docker run -p 80:80 registry.gitlab.com/unnop1.tham/jenkinscicdtesting'
+        //     }
+        // }
     }
 }
 
