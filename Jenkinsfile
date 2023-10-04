@@ -48,7 +48,7 @@ pipeline {
                 echo 'Logging'
                 sh 'docker login registry.gitlab.com'
                 echo 'Build Images'
-                sh 'docker build -t registry.gitlab.com/sasihan/jenkinscicdtesting .'
+                sh 'cd app && docker build -t registry.gitlab.com/sasihan/jenkinscicdtesting .'
                 echo 'Push Images'
                 sh 'docker push registry.gitlab.com/sasihan/jenkinscicdtesting'
             }
