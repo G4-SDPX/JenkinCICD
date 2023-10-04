@@ -64,6 +64,7 @@ pipeline {
             }
         }
         
+        
         // stage('Test pull image from GitLab') {
         //     agent {
         //         label 'pre-prod'
