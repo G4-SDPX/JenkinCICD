@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stages {
+        stages {
         stage('Install Environment') {
             agent {
                 label 'test'
@@ -40,7 +40,7 @@ pipeline {
                 sh 'robot ./test-calculate.robot'
             }
         }
-        stage('Push Images to registry') {
+        stage('Push Registry') {
             agent {
                 label 'test'
             }
@@ -63,13 +63,24 @@ pipeline {
                 sh 'docker system prune -a -f'
             }
         }
-        stage('Test pull image from GitLab') {
+        stage('Stop and Remove Docker Container') {
             agent {
                 label 'pre-prod'
             }
             steps {
-                // echo 'Remove Old images'
-                // sh 'docker rmi registry.gitlab.com/unnop1.tham/jenkinscicdtesting'
+                echo 'Show Docker running'
+                sh 'docker ps'
+                echo 'Stop Docker all'
+                sh 'docker stop `docker ps -q`'
+                echo 'Delete Docker all'
+                sh 'docker rm `docker ps -aq`'
+            }
+        }
+        stage('Run Docker Container') {
+            agent {
+                label 'pre-prod'
+            }
+            steps {
                 echo 'Pull Image from Gitlab'
                 sh 'docker pull registry.gitlab.com/sasihan/jenkinscicdtesting'
                 echo 'Run Contrainer'
